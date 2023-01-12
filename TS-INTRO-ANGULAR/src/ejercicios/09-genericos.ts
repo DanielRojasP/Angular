@@ -4,23 +4,12 @@
     ===== Código de TypeScript =====
 */
 
-class PersonaNormal {
-    constructor(
-        public nombre: string,
-        public direccion: string
-    ) { }
+function queTipoSoy<T>(argumento:T){
+    return argumento;
 }
 
-class Heroe extends PersonaNormal{
-    constructor(
-        public alterEgo: string,
-        public edad: number,
-        public nombreReal: string
-    ) { 
-        super(nombreReal,'New York, USA')
-    }
-}
+let soyString = queTipoSoy('Hola Mundo');
+let soyNumbero = queTipoSoy(100);
+let soyArreglo = queTipoSoy([1,2,12,,12,32]);
 
-const iroman = new Heroe('Ironman', 50, 'Tony');
-
-console.log(iroman);
+let soyExplicito = queTipoSoy<number>(100);
